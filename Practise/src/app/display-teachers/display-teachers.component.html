@@ -1,0 +1,97 @@
+<div class="container"> 
+    <div class="col-md-12 mx-auto mt-4">
+          <table mat-table [dataSource]="Teachers" class="mat-elevation-z8">
+             
+            <ng-container matColumnDef="Id">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+
+              <ng-container matColumnDef="Name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+          
+            
+              <ng-container matColumnDef="Email">
+              <th mat-header-cell *matHeaderCellDef>E-mail </th>
+              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+              </ng-container>
+  
+        
+              <ng-container matColumnDef="DateofBirth">
+              <th mat-header-cell *matHeaderCellDef>Date Of Birth </th>
+              <td mat-cell *matCellDef="let element"> {{element.dateofBirth}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="Gender">
+              <th mat-header-cell *matHeaderCellDef>Gender </th>
+              <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+              </ng-container>
+  
+            
+              <ng-container matColumnDef="Phonenumber">
+              <th mat-header-cell *matHeaderCellDef>Phone Number </th>
+              <td mat-cell *matCellDef="let element"> {{element.phonenumber}} </td>
+              </ng-container>
+  
+            
+              <ng-container matColumnDef="Address">
+              <th mat-header-cell *matHeaderCellDef>Address </th>
+              <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="College">
+              <th mat-header-cell *matHeaderCellDef>College </th>
+              <td mat-cell *matCellDef="let element"> {{element.college}} </td>
+              </ng-container>
+  
+       
+              <ng-container matColumnDef="Department">
+              <th mat-header-cell *matHeaderCellDef>Department </th>
+              <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+              </ng-container>
+  
+    
+              <ng-container matColumnDef="Country">
+              <th mat-header-cell *matHeaderCellDef>Country </th>
+              <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+              </ng-container>
+  
+  
+              <ng-container matColumnDef="State">
+              <th mat-header-cell *matHeaderCellDef>State </th>
+              <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+              </ng-container>
+  
+      
+              <ng-container matColumnDef="City">
+              <th mat-header-cell *matHeaderCellDef>City </th>
+              <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+              </ng-container>
+  
+           
+           <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let Teacher">
+                <button mat-raised-button (click)="DeleteTeacher(Teacher.id)">
+                    <mat-icon color="warn">delete</mat-icon>
+                </button>
+                &nbsp;
+                <button mat-raised-button (click)="EditTeacher(Teacher.id)">
+                    <mat-icon color="primary">edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>        
+    
+  
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    </div>
+</div>
+    <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+</mat-paginator>

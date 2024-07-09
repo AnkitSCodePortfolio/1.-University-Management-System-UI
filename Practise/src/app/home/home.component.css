@@ -1,0 +1,23 @@
+
+   .responsive-image {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .responsive-image::before {
+    content: "\201C";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #000; 
+  }
+  .carousel-slide {
+    display: flex;
+    align-items: center;
+  }
+  .mat-toolbar
+  {
+    background-color: lightyellow;
+  }

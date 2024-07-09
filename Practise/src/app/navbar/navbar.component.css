@@ -1,0 +1,43 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.mat-toolbar{
+    background-color:olive;
+} 
+.icon-button {
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon-link {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+  }
+  
+  .icon-link mat-icon {
+    font-size: 24px; 
+  }
+  .dark-theme {
+    /* Your dark theme styles here */
+    background-color: #1f1f1f;
+    color: #fff;
+  }
+  
+  .light-theme {
+    /* Your light theme styles here */
+    background-color: #f5f5f5;
+    color: #000;
+  }
+  
+  /* header.component.css */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+  }
+  
+  .theme-toggle mat-slide-toggle {
+    margin-right: 8px;
+  }

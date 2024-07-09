@@ -1,0 +1,14 @@
+<!-- <div id="wrapper">
+<app-navbar></app-navbar>
+<main>
+<router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>
+</div> -->
+<div id="wrapper">
+  <app-navbar *ngIf="!isPromoRoute"></app-navbar>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <app-footer *ngIf="!isPromoRoute"></app-footer>
+</div>

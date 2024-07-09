@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-content>
+    <div class="button-container">
+      <button (click)="socialSignIn('facebook')" class="loginBtn loginBtn--facebook">
+        <i class="fab fa-facebook"></i> Login with Facebook
+      </button>
+      <button (click)="socialSignIn('google')" class="loginBtn loginBtn--google">
+        <i class="fab fa-google"></i> Login with Google
+      </button>
+      <button routerLink="/auth" class="loginBtn loginBtn--google">
+        <i class="fas fa-lock"></i> Login with Auth0
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
+

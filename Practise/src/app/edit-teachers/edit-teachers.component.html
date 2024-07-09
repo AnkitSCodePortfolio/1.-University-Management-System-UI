@@ -1,0 +1,39 @@
+<mat-card id="cardstyle">  
+    <mat-card-content>    
+          <div class="profile-picture-section">
+            <div class="profile-picture-container">
+              <img [src]="profilePictureUrl" alt="Profile Picture" class="profile-picture">
+              <input type="file" accept="image/*" (change)="uploadProfilePicture($event)">
+            </div>
+      
+        <mat-form-field class="example-form-field" style="margin-top: 50px;">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" [(ngModel)]="value">
+          <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>      
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="margin-top: 10px;">
+          <mat-label>Phone Number</mat-label>
+          <span matPrefix>+91 &nbsp;</span>
+          <input type="tel" matInput placeholder="909-9094-785">
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Address</mat-label>
+            <textarea matInput placeholder="Chandni Chowk, Delhi"></textarea>
+          </mat-form-field>         
+    </div>
+    <button mat-raised-button color="accent" style="width: 150px; margin-top: 50px;">Submit</button>
+</mat-card-content>
+</mat-card>    

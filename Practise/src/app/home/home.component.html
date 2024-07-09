@@ -1,0 +1,10 @@
+<div>
+   <ngb-carousel [showNavigationArrows]="false"[interval]="3000">
+    <ng-template *ngFor="let slide of slides" ngbSlide>
+      <img [src]="slide.image" alt="{{ slide.caption }}" class="responsive-image">
+    </ng-template>
+  </ngb-carousel>
+  <router-outlet></router-outlet>
+</div>
+  
+  

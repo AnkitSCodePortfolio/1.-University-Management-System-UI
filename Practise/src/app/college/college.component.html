@@ -1,0 +1,73 @@
+<mat-card id="cardstyle">  
+    <mat-card-content class="center-content">
+      <form [formGroup]="collegeForm" (ngSubmit)="AddCollege()">
+        <mat-form-field class="example-form" style="margin-top: 50px;">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" [(ngModel)]="value" formControlName="Name" required>
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+            <mat-error>{{ getErrorMessage('Name') }}</mat-error>
+          </mat-form-field>
+        <mat-form-field class="example-form">
+            <mat-label>Enter Registration ID</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="Registration" required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error>{{ getErrorMessage('Registration') }}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-form">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="Email" required>
+              <mat-error>{{ getErrorMessage('Email') }}</mat-error>
+            </mat-form-field> 
+        <mat-form-field class="example-form" style="margin-top: 10px;">
+            <mat-label>Phone Number</mat-label>
+            <span matPrefix>+91 &nbsp;</span>
+            <input type="tel" matInput placeholder="909-9094-785" formControlName="Phone" required>
+            <mat-icon matSuffix>phone</mat-icon>
+            <mat-error>{{ getErrorMessage('Phone') }}</mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-form">
+            <mat-label>Address</mat-label>
+            <textarea matInput placeholder="Chandni Chowk, Delhi" formControlName="Address" required></textarea>
+            <mat-error>{{ getErrorMessage('Address') }}</mat-error>
+          </mat-form-field>
+          <div class ="example-form-style">
+          <mat-form-field style="width: 150px;">
+            <mat-label>Country</mat-label>
+            <mat-select formControlName="Country" required>
+              <mat-option *ngFor="let Country of Countries" [value]="Country.id">
+                {{Country.name}}
+              </mat-option>
+            </mat-select>
+            <mat-error>{{ getErrorMessage('Country') }}</mat-error>
+          </mat-form-field>
+          <mat-form-field style="width: 150px;margin-left: 15px;">
+            <mat-label>State</mat-label>
+            <mat-select formControlName="State" required>
+              <mat-option *ngFor="let State of States" [value]="State.id">
+                {{State.name}}
+              </mat-option>
+            </mat-select>
+            <mat-error>{{ getErrorMessage('State') }}</mat-error>
+          </mat-form-field>
+          <mat-form-field style="width: 150px;margin-left: 15px;">
+            <mat-label>City</mat-label>
+            <mat-select formControlName="City" required>
+              <mat-option  *ngFor="let City of Cities" [value]="City.id">
+                {{City.name}}
+              </mat-option>
+            </mat-select>
+            <mat-error>{{ getErrorMessage('City') }}</mat-error>
+          </mat-form-field> 
+        </div> 
+        <div class="example-form-style">
+        <caption >College Liecense</caption>
+        <button mat-raised-button (click)="openBottomSheet()" type="button">Upload</button>        
+        </div>
+        <button mat-raised-button color="accent" style="width: 150px; margin-top: 100px;">Submit</button>
+      </form>
+      </mat-card-content>
+</mat-card>     

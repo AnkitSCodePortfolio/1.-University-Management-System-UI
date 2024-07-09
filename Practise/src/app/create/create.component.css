@@ -1,0 +1,84 @@
+
+#cardstyle {
+  background-color: wheat;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 850px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; 
+  padding: 20px;
+}
+
+.profile-picture-section {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  margin-top: 20px; 
+}
+
+.profile-picture-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-picture {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.profile-picture-input {
+  position: absolute; 
+  width: 100%;
+  height: 100%;
+  opacity: 0; 
+  cursor: pointer; 
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+.example-form-field {
+  width: 100%;
+}
+
+.mat-form-field.example-full-width textarea {
+  width: 100%; /* Set the width of the textarea to 100% */
+  max-width: 100%; /* Set the maximum width to 100% */
+}
+
+.profile-picture-container input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.mat-radio-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10px;
+}

@@ -1,0 +1,114 @@
+<mat-card id="cardstyle">  <!--card tag-->
+    <mat-card-content>  
+      <form [formGroup]="TeacherForm" (ngSubmit)="AddTeacher()">
+      <div class="profile-picture-section">
+        <div class="profile-picture-container">
+          <img [src]="profilePictureUrl" alt="Profile Picture" class="profile-picture">
+          <input type="file" accept="image/*" formControlName="ProfilePicture" (change)="uploadProfilePicture($event)">
+        </div>
+    
+      <mat-form-field class="example-form-field" style="margin-top: 50px;">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" [(ngModel)]="value" formControlName="Name" required>
+      <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-error>{{ getErrorMessage('Name') }}</mat-error>
+    </mat-form-field>      
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="Email" required>
+          <mat-error>{{ getErrorMessage('Email') }}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+          <mat-label>Date Of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="Date" required>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error>{{ getErrorMessage('Date') }}</mat-error>
+    </mat-form-field>
+    <mat-radio-group aria-label="Select an option" class="example-full-width" formControlName="Gender" required>
+      <mat-radio-button [value]=1>Male</mat-radio-button>
+      <mat-radio-button [value]=2>Female</mat-radio-button>
+      <mat-radio-button [value]=3>Not Defined</mat-radio-button>
+      <mat-error>{{ getErrorMessage('Gender') }}</mat-error>
+    </mat-radio-group> 
+    <mat-form-field class="example-full-width" style="margin-top: 10px;">
+      <mat-label>Phone Number</mat-label>
+      <span matPrefix>+91 &nbsp;</span>
+      <input type="tel" matInput placeholder="909-9094-785" formControlName="Phone" required>
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-error>{{ getErrorMessage('Phone') }}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Address</mat-label>
+        <textarea matInput placeholder="Chandni Chowk, Delhi"formControlName="Address" required></textarea>
+        <mat-error>{{ getErrorMessage('Address') }}</mat-error>
+    </mat-form-field>
+    <div class="form-fields-row">   
+    <mat-form-field style="width: 150px;">
+      <mat-label>Country</mat-label>
+      <mat-select formControlName="Country" required>
+        <mat-option *ngFor="let Country of Countries" [value]="Country.id">
+          {{Country.name}}
+        </mat-option>
+      </mat-select>
+      <mat-error>{{ getErrorMessage('Country') }}</mat-error>
+    </mat-form-field>
+    <mat-form-field style="width: 150px;margin-left: 15px;">
+      <mat-label>State</mat-label>
+      <mat-select  formControlName="State" required>
+        <mat-option *ngFor="let State of States" [value]="State.id">
+          {{State.name}}
+        </mat-option>
+      </mat-select>
+      <mat-error>{{ getErrorMessage('State') }}</mat-error>
+    </mat-form-field>
+    <mat-form-field style="width: 150px;margin-left: 15px;">
+      <mat-label>City</mat-label>
+      <mat-select formControlName="City" required>
+        <mat-option *ngFor="let City of Cities" [value]="City.id">
+          {{City.name}}
+        </mat-option>
+      </mat-select>
+      <mat-error>{{ getErrorMessage('City') }}</mat-error>
+    </mat-form-field>
+    <div>
+      <mat-form-field style="width: 150px;">
+        <mat-label>College</mat-label>
+        <input type="text"
+               placeholder="Enter Name"
+               aria-label="Number"
+               matInput
+               [formControl]="myControlC"
+               [matAutocomplete]="autoC">
+        <mat-autocomplete #autoC="matAutocomplete">
+          <mat-option *ngFor="let option of College" [value]="option.name">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-error *ngIf="myControlC.invalid && myControlC.touched">College is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field style="width: 150px;margin-left: 15px;">
+        <mat-label>Departments</mat-label>
+        <input type="text"
+               placeholder="Enter Name"
+               aria-label="Number"
+               matInput
+               [formControl]="myControlD"
+               [matAutocomplete]="autoD">
+        <mat-autocomplete #autoD="matAutocomplete">
+          <mat-option *ngFor="let option of Department" [value]="option.name">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-error *ngIf="myControlD.invalid && myControlD.touched">Department is required</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+</div>   
+  <button mat-raised-button color="accent" style="width: 150px; margin-top: 50px;">Submit</button>
+</form>
+</mat-card-content>  
+</mat-card> 

@@ -1,0 +1,60 @@
+<header>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+    <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
+      <img src="assets/images/navbar logo.png" height="50" alt="" loading="lazy" style="margin-top: 2px;" />
+    </a>
+    
+    <form class="input-group w-auto my-auto d-none d-sm-flex">
+      <div class="mat-form-field" appearance="fill">
+        <input matInput autocomplete="on" type="search" placeholder="Search" style="min-width: 130px;margin-top: 10px;margin-left: 25px;" />
+      </div>
+      <button mat-icon-button class="input-group-text border-0 d-none d-lg-flex" style="margin-top:8px;">
+        <mat-icon>search</mat-icon>
+      </button>
+    </form>
+    
+    <span class="example-spacer"></span> 
+    
+    <div class="theme-toggle">
+      <mat-slide-toggle (change)="toggleTheme($event)"></mat-slide-toggle>
+      <mat-icon>brightness_4</mat-icon>
+    </div>
+
+    <div class="navbar-nav flex-row">
+      <mat-menu #profileMenu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Sign Out</span>
+        </button>
+      </mat-menu>
+      <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="Profile" style="margin-right: 10px;margin-top: 7px;">
+        <mat-icon>person</mat-icon>
+      </button>
+    
+        <a class="nav-link" href="#"style="margin-right: 30px;margin-top: 10px;">
+          <mat-icon>notifications</mat-icon>
+        </a>
+        <a class="nav-link" href="#" style="margin-right: 30px;margin-top: 10px;">
+          <mat-icon>comment</mat-icon>
+        </a>       
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <button mat-button routerLink="/">Home</button>
+      <button mat-button routerLink="Create" color="primary">Create</button>
+      <button mat-button routerLink="Display" color="accent">Display</button>
+      <button mat-button color="warn">FAQ</button>
+      <button mat-button disabled>Carrer</button>
+      <a mat-button href="https://www.google.com/" target="_blank">About Us</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+</header>

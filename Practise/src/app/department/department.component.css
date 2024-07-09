@@ -1,0 +1,14 @@
+#cardstyle {
+    background-color: wheat;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 850px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    padding: 20px;
+  }
+  
